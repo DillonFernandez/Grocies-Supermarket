@@ -57,34 +57,34 @@
   <main>
     <section>
       <div class="payment">   
-      <center><h1>Place Your Order</h1></center>
-        <form class="paymentform">
-          <h3>Billing Details:</h3>
-          Name: <input type="text" name="name" required class="paymentdetails" placeholder="Enter Your Name"><br><br>      
-          Phone number: <input type="tel" name="phoneno" minlength="10" maxlength="11" placeholder="Enter Phone Number" required class="paymentdetails"><br><br>
-          Email: <input type="email" name="email" required class="paymentdetails" placeholder="Enter Your Email"><br><br>      
-          Address: <input type="text" name="address" required class="paymentdetails" placeholder="Enter Your Address"><br><br>      
-          City: <input type="text" name="city" required class="paymentdetails" placeholder="Enter Your City"><br><br>      
-          Zip Code: <input type="text" name="zip" required class="paymentdetails" placeholder="Enter Your City Zipcode"><br>        
-          <br><hr>
-          <h3>Payment Details:</h3>
-          Payment Method: <select  name="payment-method" class="paymentdetails">
-          <option value="credit-card">Visa</option>
-          <option value="paypal">Master</option></select><br><br>
-          Card Number: <input type="text" name="card-number" required class="paymentdetails" placeholder="Enter Your Card Number"><br><br>      
-          Expiration Date: <input type="month" name="expiration-date" minlength="16" maxlength="16" required class="paymentdetails" placeholder="Enter Your Card Expiration Date"><br><br>      
-          CVV: <input type="text" name="cvv" required class="paymentdetails" placeholder="Enter Your Card CVV">
-          <br><br>
-          <button onclick="showPopup()" class="placeorderbtn">Place Order</button>
+        <center><h1>Place Your Order</h1></center>
+          <form class="paymentform" id="orderForm">
+            <h3>Billing Details:</h3>
+            Name: <input type="text" name="name" required class="paymentdetails" placeholder="Enter Your Name"><br><br>      
+            Phone number: <input type="tel" name="phoneno" minlength="10" maxlength="11" placeholder="Enter Phone Number" required class="paymentdetails"><br><br>
+            Email: <input type="email" name="email" required class="paymentdetails" placeholder="Enter Your Email"><br><br>      
+            Address: <input type="text" name="address" required class="paymentdetails" placeholder="Enter Your Address"><br><br>      
+            City: <input type="text" name="city" required class="paymentdetails" placeholder="Enter Your City"><br><br>      
+            Zip Code: <input type="number" name="zip" required class="paymentdetails" placeholder="Enter Your City Zipcode"><br>        
+            <br><hr>
+            <h3>Payment Details:</h3>
+            Payment Method: <select  name="payment-method" class="paymentdetails">
+            <option value="" disabled selected>Select Your Payment Method</option>
+            <option value="credit-card">Visa</option>
+            <option value="credit-card">Master</option></select><br><br>
+            Card Number: <input type="number" name="card-number" required class="paymentdetails" placeholder="Enter Your Card Number"><br><br>      
+            Expiration Date: <input type="month" name="expiration-date" minlength="16" maxlength="16" required class="paymentdetails" placeholder="Enter Your Card Expiration Date"><br><br>      
+            CVV: <input type="number" name="cvv" required class="paymentdetails" placeholder="Enter Your Card CVV">
+            <br><br>
+            <button class="placeorderbtn" type="button" onclick="placeOrder()">Place Order</button>   
+        </form>
+        <div class="popup" id="orderConfirmation">
           <center>
-            <div class="overlay" onclick="closePopup()"></div>
-            <div class="popup">
-                <p>Thank you for your purchase</p>
-                <p>Your order will be delivered on August 9th 2024</p>
-                <button onclick="closePopup()" class="placeorderbtn">Close</button>
-            </div>
-          </center>          
-      </form>
+            <h2>Thank You For Your Purchase</h2>
+            <p>Your order has been placed. Expected delivery date: <span id="deliveryDate"></span></p>
+            <button onclick="closePopup()" class="placeorderbtn">Close</button>
+          </center>
+        </div>
       </div>
     </section>
   </main>
