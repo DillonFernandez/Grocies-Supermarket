@@ -1,4 +1,3 @@
-
 /*Cart*/
 // Get elements
 const form = document.getElementById('orderForm');
@@ -17,14 +16,17 @@ function addToCart() {
     cartTableBody.innerHTML = '';
 
     Array.from(form.elements).forEach(element => {
-        if (element.type === 'number' && element.value > 0) {
-            const price = element.dataset.price * element.value;
-            totalPrice += price;
+        if (element.type === 'checkbox' && element.checked) {
+            const quantityElement = Array.from(form.elements).find(e => e.name === element.name && e.type === 'number');
+            if (quantityElement && quantityElement.value > 0) {
+                const price = quantityElement.dataset.price * quantityElement.value;
+                totalPrice += price;
 
-            const row = cartTableBody.insertRow();
-            row.insertCell(0).textContent = element.name;
-            row.insertCell(1).textContent = element.value;
-            row.insertCell(2).textContent = `RS. ${price.toFixed(2)}`;
+                const row = cartTableBody.insertRow();
+                row.insertCell(0).textContent = quantityElement.name;
+                row.insertCell(1).textContent = quantityElement.value;
+                row.insertCell(2).textContent = `RS. ${price.toFixed(2)}`;
+            }
         }
     });
 
@@ -39,7 +41,10 @@ function addToFavourites() {
     const favourites = {};
     Array.from(form.elements).forEach(element => {
         if (element.type === 'number' && element.value > 0) {
-            favourites[element.name] = element.value;
+            favourites[element.name] = {
+                quantity: element.value,
+                checked: Array.from(form.elements).find(e => e.name === element.name && e.type === 'checkbox').checked
+            };
         }
     });
     localStorage.setItem('favourites', JSON.stringify(favourites));
@@ -51,7 +56,9 @@ function applyFavourites() {
     if (favourites) {
         Array.from(form.elements).forEach(element => {
             if (element.name in favourites) {
-                element.value = favourites[element.name];
+                element.value = favourites[element.name].quantity;
+                const checkbox = Array.from(form.elements).find(e => e.name === element.name && e.type === 'checkbox');
+                checkbox.checked = favourites[element.name].checked;
             }
         });
         addToCart(); // Update cart with favourites
@@ -65,6 +72,8 @@ function resetCart() {
     Array.from(form.elements).forEach(element => {
         if (element.type === 'number') {
             element.value = 0;
+        } else if (element.type === 'checkbox') {
+            element.checked = false;
         }
     });
 }
