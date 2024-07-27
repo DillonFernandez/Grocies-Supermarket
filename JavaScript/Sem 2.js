@@ -83,30 +83,26 @@ function resetCart() {
 function placeOrder() {
     // Validate form fields
     if (validateForm()) {
-      // Generate random date
-      const today = new Date();
-      const randomHour = Math.floor(Math.random() * 24); // Random hour (0-23)
-      const randomMinute = Math.floor(Math.random() * 60); // Random minute (0-59)
-      const deliveryDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), randomHour, randomMinute);
-      document.getElementById('deliveryDate').textContent = deliveryDate.toLocaleDateString();
       // Show the popup
       document.getElementById('orderConfirmation').style.display = 'block';
     } else {
       alert('Please fill out all required fields.');
     }
-  }
-  function validateForm() {
+}
+
+function validateForm() {
     let isValid = true;
     const formElements = document.getElementById('orderForm').elements;
     for (let i = 0; i < formElements.length; i++) {
-      if (formElements[i].required && !formElements[i].value) {
-        isValid = false;
-        break;
-      }
+        if (formElements[i].required && !formElements[i].value) {
+            isValid = false;
+            break;
+        }
     }
     return isValid;
-  }
-  function closePopup() {
+}
+  
+function closePopup() {
     document.getElementById('orderConfirmation').style.display = 'none';
     window.location.href = 'index.html';
-  }
+}

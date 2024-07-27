@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,23 +66,23 @@
             Email: <input type="email" name="email" required class="paymentdetails" placeholder="Enter Your Email"><br><br>      
             Address: <input type="text" name="address" required class="paymentdetails" placeholder="Enter Your Address"><br><br>      
             City: <input type="text" name="city" required class="paymentdetails" placeholder="Enter Your City"><br><br>      
-            Zip Code: <input type="number" name="zip" required class="paymentdetails" placeholder="Enter Your City Zipcode"><br>        
+            Zip Code: <input type="number" name="zip" required class="paymentdetails" placeholder="Enter Your City Zipcode" minlength="5" maxlength="5"><br>        
             <br><hr>
             <h3>Payment Details:</h3>
             Payment Method: <select  name="payment-method" class="paymentdetails">
             <option value="" disabled selected>Select Your Payment Method</option>
             <option value="credit-card">Visa</option>
             <option value="credit-card">Master</option></select><br><br>
-            Card Number: <input type="number" name="card-number" required class="paymentdetails" placeholder="Enter Your Card Number"><br><br>      
+            Card Number: <input type="number" name="card-number" required class="paymentdetails" placeholder="Enter Your Card Number" minlength="16" maxlength="16"><br><br>      
             Expiration Date: <input type="month" name="expiration-date" minlength="16" maxlength="16" required class="paymentdetails" placeholder="Enter Your Card Expiration Date"><br><br>      
-            CVV: <input type="number" name="cvv" required class="paymentdetails" placeholder="Enter Your Card CVV">
+            CVV: <input type="number" name="cvv" required class="paymentdetails" placeholder="Enter Your Card CVV" minlength="3" maxlength="3">
             <br><br>
             <button class="placeorderbtn" type="button" onclick="placeOrder()">Place Order</button>   
         </form>
         <div class="popup" id="orderConfirmation">
           <center>
             <h2>Thank You For Your Purchase</h2>
-            <p>Your order has been placed. Expected delivery date: <span id="deliveryDate"></span></p>
+            <p>Your order has been placed. Expected delivery date: 3 Days</span></p>
             <button onclick="closePopup()" class="placeorderbtn">Close</button>
           </center>
         </div>
