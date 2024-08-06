@@ -55,6 +55,29 @@
       </ul>
     </section>
   </header>
+  <div class="ordersumpayment">
+    <center><h2>Order Summary</h2></center>    
+    <table id="cartTable" class="ordersum">
+        <thead>
+            <tr>
+                <th class="ordersumth">Item</th>
+                <th class="ordersumth">Quantity/Kg</th>
+                <th class="ordersumth">Price</th>
+            </tr>
+        </thead>
+        <tbody id="cartTableBody">
+            <!-- Cart items will be added here -->
+        </tbody>
+        <b><tfoot>
+            <tr>
+                <th colspan="2" class="ordersumth">Total</th>
+                <th id="totalPrice" class="ordersumth">
+                  <div id="totalPriceElement"></div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
   <main>
     <section>
       <div class="payment">   
@@ -82,7 +105,7 @@
         <div class="popup" id="orderConfirmation">
           <center>
             <h2>Thank You For Your Purchase</h2>
-            <p>Your order has been placed. Expected delivery date: 3 Days</span></p>
+            <p>Your order has been placed. Expected delivery date: 3 Days</p>
             <button onclick="closePopup()" class="placeorderbtn">Close</button>
           </center>
         </div>
@@ -91,7 +114,7 @@
   </main>
   <br>
   <script src="JavaScript/General.js"></script>
-  <script src="JavaScript/Sem 2.js"></script>
+  <script src="JavaScript/Payment Page.js"></script>
 </body>
 <footer>
   <!--Cargills (2022a). Ayush Anti Pimple Turmeric Face Wash. [online] Cargills. Available at: https://cargillsonline.com/ProductDetails/skin-care/Ayush-Anti-Pimple-Turmeric-Face-Wash?ID=+dJOrpRcMyWVhbSzkKIqNg== [Accessed 6 Apr. 2024]. -->

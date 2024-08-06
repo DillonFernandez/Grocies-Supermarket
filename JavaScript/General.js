@@ -1,4 +1,4 @@
-/*Search*/
+// Search Bar
 function myFunction() {
   var input, filter, ul, li, a, i, txtValue; // Declare variables
   input = document.getElementById('myInput'); // Get the input element by its ID
