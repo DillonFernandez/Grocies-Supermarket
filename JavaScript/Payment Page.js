@@ -3,17 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTableBody = document.getElementById('cartTableBody');
     const totalPriceElement = document.getElementById('totalPriceElement');
 
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const totalPrice = localStorage.getItem('totalPrice') || '0.00';
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Get cart items from local storage or an empty array
+    const totalPrice = localStorage.getItem('totalPrice') || '0.00'; // Get total price from local storage or '0.00'
 
     cartItems.forEach(item => {
-        const row = cartTableBody.insertRow();
-        row.insertCell(0).textContent = item.name;
-        row.insertCell(1).textContent = item.quantity;
-        row.insertCell(2).textContent = `RS. ${item.price}`;
+        const row = cartTableBody.insertRow(); // Create a new table row
+        row.insertCell(0).textContent = item.name; // Set the text content of the first cell to the item's name
+        row.insertCell(1).textContent = item.quantity; // Set the text content of the second cell to the item's quantity
+        row.insertCell(2).textContent = `RS. ${item.price}`; // Set the text content of the third cell to the item's price
     });
 
-    totalPriceElement.textContent = `RS. ${totalPrice}`;
+    totalPriceElement.textContent = `RS. ${totalPrice}`; // Set the text content of the total price element
 });
 
 // Pop up
